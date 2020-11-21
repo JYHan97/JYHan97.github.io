@@ -89,26 +89,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Texture-Synthesis-and-Transfer-Algorithm-Implementation"><a href="#Texture-Synthesis-and-Transfer-Algorithm-Implementation" class="headerlink" title="Texture Synthesis and Transfer Algorithm Implementation"></a>Texture Synthesis and Transfer Algorithm Implementation</h2><p>Name: <strong>Junyu Han</strong><br><a href="Update.pdf">Download the PDF file</a></p>
-<h3 id="Summary-of-Work-to-Date"><a href="#Summary-of-Work-to-Date" class="headerlink" title="Summary of Work to Date"></a>Summary of Work to Date</h3><p>Firstly, I did research on texture synthesis and transfer algorithm especially classic method. Integrate with the paper presentation, I read the paper “Image Quilting for Texture Synthesis and Transfer” as well as some related work, like “Texture Synthesis by non-parametric Sampling” and “Chaos mosaic: Fast and memory efficient texture synthesis”. After that, I decided to implement the “Image Quilting” algorithm.</p>
-<p>Then I found some texture online as input texture. The size of those texture is not too big, one of our goal in this project is implement the Image Quilting algorithm to generate arbitrary size of output texture with similar construction. There were 15 different input texture now, most of them were from the image quilting paper.</p>
-<p>Furthermore, I started implemented the algorithm in Python. I decided use Pillow package in to load input texture and export the output. Using NumPy to process matrix computation. As for now, I completed the first two steps of image quilting algorithm: 1) Go through the synthesized texture in raster scan order by step of block. 2) For each location, randomly pick a block from the input texture that satisfy overlap constraints. What left is the third step, use dynamic programing to find the minimal cost cut path and paste the new block to the output texture.</p>
+<h3 id="Summary-of-Work-to-Date"><a href="#Summary-of-Work-to-Date" class="headerlink" title="Summary of Work to Date"></a>Summary of Work to Date</h3><p>Firstly, I researched on texture synthesis and transfer algorithms, especially the classic method. Integrate with the paper presentation, I read the paper “Image Quilting for Texture Synthesis and Transfer” as well as some related work, like “Texture Synthesis by non-parametric Sampling” and “Chaos mosaic: Fast and memory efficient texture synthesis”. After that, I decided to implement the “Image Quilting” algorithm.</p>
+<p>Then I found some texture online as input texture. The size of those textures is not too big, one of our goals in this project is implementing the Image Quilting algorithm to generate the arbitrary size of output texture with similar construction. There were 15 different input textures now, most of them were from the image quilting paper.</p>
+<p>Furthermore, I started implemented the algorithm in Python. I decided to use the Pillow package to load input texture and export the output. Using NumPy to process matrix computation. As for now, I completed the first two steps of image quilting algorithm: 1) Go through the synthesized texture in raster scan order by step of a block. 2) For each location, randomly pick a block from the input texture that satisfy overlap constraints. What is left is the third step, use dynamic programming to find the minimal cost cut path and paste the new block to the output texture.</p>
 <hr>
 <h3 id="Analysis-of-Work"><a href="#Analysis-of-Work" class="headerlink" title="Analysis of Work"></a>Analysis of Work</h3><p>As I listed in the Proposal, there were 4 goals for this project:</p>
 <ol>
-<li>   Do solid research on texture synthesis and transfer topic. </li>
+<li>   Do solid research on texture synthesis and transfer topics. </li>
 <li>   Pick at least one example-based texture synthesis and transfer algorithm to implement.</li>
 <li>   Build a system to demonstrate the texture synthesis and transfer results.</li>
-<li>   (Additional) Explore follow-up texture transfer methods. For example, the optimization-</li>
+<li>   (Additional) Explore follow-up texture transfer methods. </li>
 </ol>
-<p>Now I finished the first goal and the second one is in progress. It’s kind of behind the plan. For the second goal, I have two part left. As for texture synthesis, I need to implement cut path finding function which would utilize dynamic programing. For texture transfer, it still waited to start.</p>
-<p>After I finished reproducing the algorithm, I need to design a texture synthesis and transfer pip-line system. In that system, user would give the input texture name, and some parameters, like block size, overlap size etc. If the user chooses the synthesis model, the system would generate new texture with new size. If the user chooses the transfer model, a context image would be asked, then the system would generate a transfer result.</p>
+<p>Now I finished the first goal and the second one is in progress. It’s kind of behind the plan. For the second goal, I have two parts left. For texture synthesis, I need to implement cut path finding function which would utilize dynamic programming. For texture transfer, it still waited to start.</p>
+<p>After I finished reproducing the algorithm, I need to design a texture synthesis and transfer pip-line system. In that system, user would give the input texture name, and some parameters, like block size, overlap size, etc. If the user chooses the synthesis model, the system would generate new texture with new size. If the user chooses the transfer model, a context image would be asked, then the system would generate a transfer result.</p>
 <hr>
-<h3 id="List-of-Goals"><a href="#List-of-Goals" class="headerlink" title="List of Goals"></a>List of Goals</h3><p>The over all goals of this project didn’t change, we would reproduce the Image Quilting algorithm and generate a texture synthesis and transfer system. The updated plan given below:</p>
+<h3 id="Plan-for-Completion"><a href="#Plan-for-Completion" class="headerlink" title="Plan for Completion"></a>Plan for Completion</h3><p>The overall goals of this project didn’t change, we would reproduce the Image Quilting algorithm and generate a texture synthesis and transfer system. The updated plan is given below:</p>
 <ol>
-<li>   Implement the cut path function using dynamic programing. Due Nov. 22</li>
+<li>   Implement the cut path function using dynamic programming. Due Nov. 22</li>
 <li>   Implement the texture transfer part. Due Nov.25</li>
 <li>   Test all those functions and integrate them as a system. Due Nov. 28</li>
-<li>   Start writing final report, prepare final presentation from Nov. 30</li>
+<li>   Start writing the final report, prepare a final presentation from Nov. 30</li>
 <li>   (Additional)Explore another algorithm if possible.</li>
 </ol>
 <hr>
@@ -116,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/20/Project-Update/" data-id="ckhragecc00010bk8bjj3hh17" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/20/Project-Update/" data-id="ckhrb4yn000015hk80thz3yyg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/05/Project-Proposal/" data-id="ckhragec600000bk8ed2l0clh" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/05/Project-Proposal/" data-id="ckhrb4ymw00005hk8b8983j43" class="article-share-link">Share</a>
       
       
     </footer>
