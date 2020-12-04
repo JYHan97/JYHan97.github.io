@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Project-Final Report | CSCE641-Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Texture Synthesis and Transfer Algorithm ImplementationName: Junyu HanDownload the PDF file Problem SummaryIn this project I focused on the texture synthesis and texture transfer problems. Texture syn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project-Final Report">
+<meta property="og:url" content="http://example.com/2020/12/04/Project-Final-Report/index.html">
+<meta property="og:site_name" content="CSCE641-Project">
+<meta property="og:description" content="Texture Synthesis and Transfer Algorithm ImplementationName: Junyu HanDownload the PDF file Problem SummaryIn this project I focused on the texture synthesis and texture transfer problems. Texture syn">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/12/04/Project-Final-Report/image1.png">
+<meta property="og:image" content="http://example.com/2020/12/04/Project-Final-Report/image2.png">
+<meta property="og:image" content="http://example.com/2020/12/04/Project-Final-Report/image3.png">
+<meta property="og:image" content="http://example.com/2020/12/04/Project-Final-Report/image4.png">
+<meta property="article:published_time" content="2020-12-04T11:03:21.000Z">
+<meta property="article:modified_time" content="2020-12-04T11:35:21.411Z">
+<meta property="article:author" content="Junyu Han">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/04/Project-Final-Report/image1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CSCE641-Project" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CSCE641-Project</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Project-Final-Report" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/04/Project-Final-Report/" class="article-date">
+  <time datetime="2020-12-04T11:03:21.000Z" itemprop="datePublished">2020-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Project-Final Report
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Texture-Synthesis-and-Transfer-Algorithm-Implementation"><a href="#Texture-Synthesis-and-Transfer-Algorithm-Implementation" class="headerlink" title="Texture Synthesis and Transfer Algorithm Implementation"></a>Texture Synthesis and Transfer Algorithm Implementation</h2><p>Name: <strong>Junyu Han</strong><br><a href="Final_Report.pdf">Download the PDF file</a></p>
+<h3 id="Problem-Summary"><a href="#Problem-Summary" class="headerlink" title="Problem Summary"></a>Problem Summary</h3><p>In this project I focused on the texture synthesis and texture transfer problems. Texture synthesis would allow us to generate arbitrary size of texture from a small texture sample, which allows us take sample from real world and generate a proper texture when we do texture mapping. As for texture transfer, we can transfer a “style” of given texture to another image or object.</p>
+<hr>
+<h3 id="Previous-Work"><a href="#Previous-Work" class="headerlink" title="Previous Work"></a>Previous Work</h3><p>This topic was raised when image-based rendering being active. A classic texture synthesis and transfer algorithm is image quilting technique<sup>[2]</sup> which is pioneered by Efors and Freeman. Then there is follow-up work of example-based method called optimization-based texture transfer technique. It was firstly proposed by Kwatra. The texture synthesis problem was treated as a global optimization task and used Expectation Maximization-like algorithm to iteratively minimize the energy function. Analogy-based method is another alternative for texture transfer utilizes the availability of the input example pair to acquire the stylized image of target image. For latest research, people proposed Neural-based Style transfer which used pre-trained CNN, they can get a styling context image based on a context image and a style image which would keep the semantic of context image.</p>
+<p>In this project, I also used some extend library to create the program. I used Pillow to load and export images. And I used Numpy to accomplish some matrix computation.</p>
+<hr>
+<h3 id="Description-of-Work"><a href="#Description-of-Work" class="headerlink" title="Description of Work"></a>Description of Work</h3><p>In this project, I first explored multiple texture synthesis and transfer algorithm by reading research papers. Then I decided to implement the one of the fundamental algorithms, image quilting. This algorithm can be utilized in both texture synthesis and texture transfer. And this algorithm also is the basic idea of lots of further work in this area.</p>
+<p>In the implementing process, I conducted coding in python. The major challenges in programing were how to properly determine the sample size. Another challenge is how to use dynamic programing to compute the minimal cutting path and paste a new block to the output texture. For the sample size, I paid attention to the boundary of the image, instead of picking a full block from all suitable blocks, the specific size of sample we needed was depends on the remainder size of current location. As for finding the cut path and paste the new block. I used two different masks. After we found the cut path, we would use the path to set these two masks, one used to cut already pasted block, another used to cut the new block.</p>
+<hr>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>I successfully reproduced the image quilting algorithm and was able to use this algorithm to synthesis texture and transfer the texture. I gathered 14 input textures and use the implemented algorithm to generate arbitrary size of output textures. I also used some of these textures to test texture transfer for different photos.</p>
+<p>Here were some results for texture synthesis:</p>
+<p><img src="/2020/12/04/Project-Final-Report/image1.png" alt="Texture Synthesis Results"><br><img src="/2020/12/04/Project-Final-Report/image2.png" alt="Texture Synthesis Results"><br><img src="/2020/12/04/Project-Final-Report/image3.png" alt="Texture Synthesis Results"></p>
+<p>Here were some results for texture transfer:<br><img src="/2020/12/04/Project-Final-Report/image4.png" alt="Texture Transfer Results"></p>
+<hr>
+<h3 id="Analysis-of-Work"><a href="#Analysis-of-Work" class="headerlink" title="Analysis of Work"></a>Analysis of Work</h3><h4 id="New-Results"><a href="#New-Results" class="headerlink" title="New Results"></a>New Results</h4><p>This project mainly reproduced the paper “Image Quilting for Texture Synthesis and Transfer”. There were little new results. The program was coded in Python, so it’s easy to read and understand. All the comments were based on the paper. I believe it should be a good material to learn this algorithm and read this paper.</p>
+<h4 id="Meeting-Goals"><a href="#Meeting-Goals" class="headerlink" title="Meeting Goals"></a>Meeting Goals</h4><p>I achieved all of the original goals, except the additional one. I successfully implement the texture synthesis and transfer algorithm and built a simple system. For texture synthesis, this system took sample texture as input and users could enter parameters like output texture size, block size and overlap size, then would get synthesized texture. For texture transfer, this system took texture sample and target image as inputs, generated styled target image by given parameters.</p>
+<h4 id="Future-Work"><a href="#Future-Work" class="headerlink" title="Future Work"></a>Future Work</h4><p>After doing this project I found the image quilting algorithm has good results in structured textures. However, for unstructured texture, this algorithm didn’t work well. So, for the texture synthesis topic, I would like to explore a way which can generate unstructured texture properly. For texture transfer topic, I noticed “style transfer” was a newer topic in this area, how to use the neural network to find the style of an image and transfer it to another scene would be an interesting topic. Furthermore, instead of transfer static style, how to make the transformation can be interactive with user would also be next direction to head. For example, if it possible for users can lively paint with different styles. </p>
+<hr>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] Men, Yifang, et al. “A common framework for interactive texture transfer.” Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2018.<br>[2] Efros, Alexei A., and William T. Freeman. “Image quilting for texture synthesis and transfer.” Proceedings of the 28th annual conference on Computer graphics and interactive techniques. 2001.<br>[3] Gatys, Leon A., Alexander S. Ecker, and Matthias Bethge. “Image style transfer using convolutional neural networks.” Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/04/Project-Final-Report/" data-id="ckia70pnp000031k82q7lasmn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/20/Project-Update/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Project-Update</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/04/Project-Final-Report/">Project-Final Report</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/Project-Update/">Project-Update</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/05/Project-Proposal/">Project Proposal</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Junyu Han<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
